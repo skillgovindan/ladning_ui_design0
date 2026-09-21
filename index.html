@@ -133,7 +133,7 @@
             <div class="lg:col-span-6 space-y-8">
                 <div class="inline-flex items-center gap-2 bg-brand-secondary/10 px-3 py-1 rounded-full">
                     <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-secondary opacity-75"></span>
+                        <span class="absolute inline-flex h-full w-full rounded-full bg-brand-secondary opacity-25"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-secondary"></span>
                     </span>
                     <span class="text-[10px] font-bold tracking-widest uppercase text-brand-secondary">Industry Ready Tech</span>
@@ -181,7 +181,7 @@
                         
                         <!-- Overlay Labels -->
                         <div class="absolute top-4 left-4 pointer-events-none">
-                            <div class="bg-brand-accent/20 border border-brand-accent/30 backdrop-blur-md px-3 py-1.5 rounded text-[10px] font-mono text-brand-accent uppercase font-bold animate-pulse-soft">
+                            <div class="bg-brand-accent/20 border border-brand-accent/30 backdrop-blur-md px-3 py-1.5 rounded text-[10px] font-mono text-brand-accent uppercase font-bold">
                                 System: Active
                             </div>
                         </div>
@@ -261,17 +261,6 @@
                 ctx.moveTo(path[0].x, path[0].y);
                 for(let i=1; i<path.length; i++) ctx.lineTo(path[i].x, path[i].y);
                 ctx.stroke();
-
-                // Moving pulse
-                ctx.globalAlpha = 1;
-                const totalLen = path.length;
-                const segment = Math.floor((time * speed) % totalLen);
-                if(path[segment] && path[segment+1]) {
-                    ctx.beginPath();
-                    ctx.arc(path[segment].x, path[segment].y, 2, 0, Math.PI*2);
-                    ctx.fillStyle = color;
-                    ctx.fill();
-                }
             }
 
             const paths = [
